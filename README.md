@@ -74,3 +74,13 @@ a
 
 موفق باشید.
 
+
+---
+
+## فایل های دانلود شده در گیتهاب شما :
+
+1 - [clone](https://github.com/vahidmehraby/downloader/tree/main/downloads/clone)
+2 - [git](https://github.com/vahidmehraby/downloader/tree/main/downloads/git)
+3 - [yay](https://github.com/vahidmehraby/downloader/tree/main/downloads/yay)
+
+---
