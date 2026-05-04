@@ -1,0 +1,2 @@
+https://www.torproject.org/static/images/favicon/favicon.ico
+https://www.torproject.org/static/images/favicon/favicon.png
