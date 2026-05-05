@@ -1,10 +1,6 @@
-# Downloads
+# Downloaded list :
 
----
-
-## NO FILE DOWNLOADED YET!
-
-Use the download workflows to add files here.
+- [ComfyUI_windows_portable_amd](./ComfyUI_windows_portable_amd)
 
 ---
 
