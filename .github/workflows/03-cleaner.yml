@@ -1,3 +1,4 @@
+---
 name: 🗑 3-Clean downloads folder
 
 on:
@@ -11,29 +12,130 @@ on:
 jobs:
   delete:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     permissions:
       contents: write
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
 
-      - name: Remove downloads folder and recreate it
-        run: |
-          rm -rf downloads
-          mkdir downloads
-
-      - name: Commit and push empty folder
+      - name: Configure Git
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
 
-          git add downloads
-          if git diff --staged --quiet; then
-            echo "No changes to commit"
+      - name: Remove downloads folder from Git and recreate with README
+        run: |
+          BRANCH="${GITHUB_REF_NAME}"
+
+          echo "AVASAM (https://avasam.ir) - Cleaning downloads folder"
+          echo ""
+
+          # Check if downloads folder exists in git
+          if [ -d "downloads" ]; then
+            echo "Removing downloads folder from Git tracking..."
+
+            # Use git rm to properly remove tracked files
+            # This stages the deletion for commit
+            git rm -rf downloads/ 2>/dev/null || true
+
+            # Also remove any untracked files
+            rm -rf downloads 2>/dev/null || true
+
+            echo "Downloads folder removed from Git"
           else
-            git commit -m "[AVASAM] Empty downloads folder [skip ci]"
-            git pull --rebase origin "${{ github.ref_name }}"
-            git push origin HEAD:"${{ github.ref_name }}"
-            echo "✅ downloads folder cleared"
+            echo "Downloads folder doesn't exist, creating new one..."
           fi
+
+          # Create fresh downloads folder
+          mkdir -p downloads
+
+          # IMPORTANT: Git doesn't track empty folders!
+          # We MUST add a file inside for Git to track the folder
+          {
+            echo "# Downloads"
+            echo ""
+            echo "---"
+            echo ""
+            echo "## NO FILE DOWNLOADED YET!"
+            echo ""
+            echo "Use the download workflows to add files here."
+            echo ""
+            echo "---"
+            echo ""
+            echo "*This tool created by [avasam.ir](https://avasam.ir)*"
+          } > downloads/README.md
+
+          echo "Created downloads/README.md"
+
+          # Stage the new README file
+          git add downloads/README.md
+
+          # Check if there are changes to commit
+          if git diff --staged --quiet; then
+            echo ""
+            echo "No changes detected - downloads folder is already clean"
+            exit 0
+          fi
+
+          # Commit the changes
+          git commit -m "[AVASAM] Clean downloads folder [skip ci]"
+
+          echo ""
+          echo "Pushing changes..."
+
+          # Push with retries
+          RETRY=0
+          MAX_RETRIES=5
+          while [ $RETRY -lt $MAX_RETRIES ]; do
+            RETRY=$((RETRY + 1))
+
+            # Fetch and rebase to avoid conflicts
+            git fetch origin "$BRANCH" --quiet 2>/dev/null || true
+            git rebase origin/"$BRANCH" 2>/dev/null || {
+              # If rebase fails, reset and try again
+              git rebase --abort 2>/dev/null || true
+              git reset --hard HEAD~1 2>/dev/null || true
+              git pull --rebase origin "$BRANCH" 2>/dev/null || true
+
+              # Recreate our changes
+              mkdir -p downloads
+              git rm -rf downloads/ 2>/dev/null || true
+              rm -rf downloads 2>/dev/null || true
+              mkdir -p downloads
+              {
+                echo "# Downloads"
+                echo ""
+                echo "---"
+                echo ""
+                echo "## NO FILE DOWNLOADED YET!"
+                echo ""
+                echo "Use the download workflows to add files here."
+                echo ""
+                echo "---"
+                echo ""
+                echo "*This tool created by [avasam.ir](https://avasam.ir)*"
+              } > downloads/README.md
+              git add -A downloads/
+              git commit -m "[AVASAM] Clean downloads folder [skip ci]" 2>/dev/null || true
+            }
+
+            if timeout 60 git push origin HEAD:"$BRANCH" 2>&1; then
+              echo ""
+              echo "=========================================="
+              echo "✅ Downloads folder cleared successfully!"
+              echo "AVASAM (https://avasam.ir)"
+              echo "=========================================="
+              exit 0
+            else
+              echo "Push failed, retry $RETRY/$MAX_RETRIES..."
+              sleep $((2 + RANDOM % 5))
+            fi
+          done
+
+          echo "❌ Failed to push after $MAX_RETRIES attempts"
+          exit 1
