@@ -85,10 +85,14 @@ https://github.com/nikzad-avasam/youtube-dl
 
 ---
 
+---
+
 ## فایل های دانلود شده در گیتهاب شما :
 
 1. [_nova](https://github.com/Reza-sr0/downloader/tree/main/downloads/_nova)
 
-2. [remote_control](https://github.com/Reza-sr0/downloader/tree/main/downloads/remote_control)
+2. [pimpbunny](https://github.com/Reza-sr0/downloader/tree/main/downloads/pimpbunny)
+
+3. [remote_control](https://github.com/Reza-sr0/downloader/tree/main/downloads/remote_control)
 
 ---

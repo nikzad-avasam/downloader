@@ -1,6 +1,7 @@
 # Downloaded list :
 
 - [_nova](./_nova)
+- [pimpbunny](./pimpbunny)
 - [remote_control](./remote_control)
 
 ---
