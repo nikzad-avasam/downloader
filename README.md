@@ -83,8 +83,12 @@ https://github.com/nikzad-avasam/youtube-dl
 
 ---
 
+---
+
 ## فایل های دانلود شده در گیتهاب شما :
 
-1. [remote_control](https://github.com/Reza-sr0/downloader/tree/main/downloads/remote_control)
+1. [_nova](https://github.com/Reza-sr0/downloader/tree/main/downloads/_nova)
+
+2. [remote_control](https://github.com/Reza-sr0/downloader/tree/main/downloads/remote_control)
 
 ---
