@@ -1,0 +1,23 @@
+========================================================
+  AVASAM Download Error Report
+  https://avasam.ir
+========================================================
+
+File: 
+URL: -o
+Date: 2026-05-07 21:59:30 UTC
+
+ERROR:
+curl: option -o: requires parameter
+curl: try 'curl --help' or 'curl --manual' for more information
+
+========================================================
+  Possible Solutions:
+========================================================
+- Check if the URL is correct and accessible
+- The file may have been removed or moved
+- The server may require authentication
+- For SourceForge: Try using the direct download link
+- Some servers block automated downloads (403 Forbidden)
+- Try again later if it is a temporary server issue
+========================================================

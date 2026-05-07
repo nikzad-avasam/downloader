@@ -77,10 +77,17 @@ a
 
 ---
 
+---
+
 ## فایل های دانلود شده در گیتهاب شما :
 
-1 - [clone](https://github.com/vahidmehraby/downloader/tree/main/downloads/clone)
-2 - [git](https://github.com/vahidmehraby/downloader/tree/main/downloads/git)
-3 - [yay](https://github.com/vahidmehraby/downloader/tree/main/downloads/yay)
+1 - [_moon_1290](https://github.com/vahidmehraby/downloader/tree/main/downloads/_moon_1290)
+2 - [_theta_950](https://github.com/vahidmehraby/downloader/tree/main/downloads/_theta_950)
+3 - [archive_20260507_220051](https://github.com/vahidmehraby/downloader/tree/main/downloads/archive_20260507_220051)
+4 - [clone](https://github.com/vahidmehraby/downloader/tree/main/downloads/clone)
+5 - [curl](https://github.com/vahidmehraby/downloader/tree/main/downloads/curl)
+6 - [git](https://github.com/vahidmehraby/downloader/tree/main/downloads/git)
+7 - [yay](https://github.com/vahidmehraby/downloader/tree/main/downloads/yay)
+8 - [yay.tar](https://github.com/vahidmehraby/downloader/tree/main/downloads/yay.tar)
 
 ---
