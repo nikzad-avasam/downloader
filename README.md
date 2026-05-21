@@ -1,5 +1,5 @@
 <div align="center">
-<img src="icons/loading.gif" width=250 />
+<img src="loading.gif" width=250 />
 </div>
 
 # سلام 
