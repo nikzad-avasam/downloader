@@ -5,16 +5,21 @@
 # سلام 
 این پروژه به چند زیر پروژه تقسیم بندی شده و از طریق ریپازیتوری های جدا از هم در دسترس است که میتوانید از طریق لینک های زیر به آنها دسترسی داشته باشید. 
 
-## این پروژه به لینک زیر منتقل شد :
+## 📌 دانلودر فایل با لینک مستقیم :
 
 🟢 https://github.com/nikzad-avasam/UDL-3
 
-## دانلودر یوتیوب : 
+## 📌 دانلودر یوتیوب : 
 🟢 https://github.com/nikzad-avasam/Ourtube
 
-## دانلودر تلگرام :‌
+## 📌 دانلودر تلگرام :‌
 
 🟢 https://github.com/nikzad-avasam/TG-dl
+
+## 📌 پینترست با نت ملی(جستجو و دانلود ) :‌
+
+🟢 https://github.com/nikzad-avasam/ourpin
+
 
 <div align="center">
 <img src="icons/celebrate.gif" width=250 />
